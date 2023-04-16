@@ -415,8 +415,8 @@ binary_sensor:
             condition:
               and:
                   - switch.is_on: relay1_fallback
-                  - not:
-                      api.connected:
+               #   - not:
+               #       api.connected:
             then:
               - switch.toggle: relay_1
               - if: 
