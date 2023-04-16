@@ -5925,7 +5925,7 @@ action:
                   - service: "{{ command_text_printf }}"
                     data:
                       component: current_temp
-                      message: "{{ (state_attr(entity_long, 'current_temperature') | round(1) ~ weather.units.temperature) if is_number(state_attr(entity_long, 'current_temperature')) }}"
+                      message: "{{ (state_attr(entity_long, 'current_temperature') | round(0) ~ weather.units.temperature) if is_number(state_attr(entity_long, 'current_temperature')) }}"
                   - if:
                       condition: template
                       value_template: '{{ hvac_mode != "off" and is_number(state_attr(entity_long, "temperature")) }}'
@@ -8144,7 +8144,7 @@ action:
           - service: "{{ command_text_printf }}"
             data:
               component: home.current_temp
-              message: "{{ trigger.event.data.new_state.state | round(1) }}{{ weather.units.temperature }}"
+              message: "{{ trigger.event.data.new_state.state | round(0) }}{{ weather.units.temperature }}"
 
       ##### INDOOR TEMP - nspanel #####
       - conditions:
@@ -8170,7 +8170,7 @@ action:
               - service: "{{ command_text_printf }}"
                 data:
                   component: home.current_temp
-                  message: "{{ trigger.event.data.new_state.state | round(1) }}{{ weather.units.temperature }}"
+                  message: "{{ trigger.event.data.new_state.state | round(0) }}{{ weather.units.temperature }}"
 
       ##### WEATHER STATE - change update #####
       - conditions:
