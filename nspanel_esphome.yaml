@@ -419,7 +419,7 @@ binary_sensor:
                #       api.connected:
             then:
               - switch.toggle: relay_1
-              - switch.taggle: relay_2
+              - switch.toggle: relay_2
               - if: 
                   condition:
                     switch.is_on: relay_1
