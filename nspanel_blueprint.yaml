@@ -4346,13 +4346,13 @@ action:
                   ##### SET Left Hardware Button PIC on Home Page ####
                   - if:
                       - condition: template
-                        value_template: '{{ left_button_entity |length > 0 and states(left_button_entity).state != "unavailable" }}'
+                        value_template: '{{ Relay_1 |length > 0 and states(Relay_1).state != "unavailable" }}'
                     then:
                       - variables:
                           # Hardware Button PIC
                           left_hardware_button_state: >-
-                            {%- if states(left_button_entity) == 'off' -%} {{ hardware_button_pic_off }}
-                            {%- elif states(left_button_entity) == 'on' -%} {{ hardware_button_pic_on }}
+                            {%- if states(Relay_1) == 'off' -%} {{ hardware_button_pic_off }}
+                            {%- elif states(Relay_1) == 'on' -%} {{ hardware_button_pic_on }}
                             {%- endif -%}
                       - delay:
                           milliseconds: "{{ delay_value }}"
